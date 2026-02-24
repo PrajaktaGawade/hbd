@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 💖</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Comic Sans MS', cursive;
+    background: linear-gradient(135deg,#ffd6e8,#ffeaf4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+/* Make container relative so NO stays inside */
+.container{
+    width:100%;
+    max-width:500px;
+    text-align:center;
+    padding:20px;
+    position:relative;   /* IMPORTANT */
+}
+
+/* NO button moving style */
+.no{
+    background:#ffcce6;
+    position:absolute;
+}
+/* Main container fixed */
+.container{
+    width:100%;
+    max-width:500px;
+    text-align:center;
+    padding:20px;
+}
+
+/* Hide pages */
+.page{
+    display:none;
+}
+
+/* Show active page */
+.active{
+    display:block;
+}
+
+/* Headings */
+h1{
+    font-size:clamp(20px,5vw,30px);
+}
+
+/* Buttons */
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+    margin:10px;
+}
+
+.yes{
+    background:#ff4da6;
+    color:white;
+}
+
+.no{
+    background:#ffcce6;
+}
+
+/* Images */
+img{
+    width:90%;
+    max-width:250px;
+    height:auto;
+    border-radius:20px;
+    margin:15px;
+}
+
+/* Letter */
+.letter{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.letter p{
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* Gallery */
+.gallery{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* Bounce gift only */
+.bounce{
+    animation:bounce 1.5s infinite;
+    cursor:pointer;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <h1>Hii maza Ukadicha modak 🥰</h1>
+    <img src="cakeboxgift.png" class="bounce" onclick="nextPage(2)">
+    <p>Tap the gift 💖</p>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <h1>🎉 WISHING YOU HAPPY BIRTHDAY 🎂</h1>
+    <img src="hbd.png">
+    <button onclick="nextPage(3)">Continue ➡️</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+    <h1>PLS ACCEPT THE GIFT 🥺</h1>
+    <img src="CAT.png">
+    <div>
+        <button class="yes" onclick="nextPage(4)">YES 💕</button>
+        <button class="no" onclick="moveButton()">NO 🙄</button>
+    </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+    <div class="letter">
+        <h2>🎀💌 Happy Birthday Maya 💌🎀</h2>
+        <p>
+Happy Birthday to my absolute favorite human in this whole world 🎂💖
+
+You’re not just my best friend… you’re my safe place, my biggest supporter,
+my partner in crime, and the one person who understands my madness without explanation 😌✨
+
+Thank you for all the late-night talks, the uncontrollable laughter,
+the random drama, and the memories that I’ll cherish forever 💕
+
+Life honestly wouldn’t be the same without you in it.
+I’m so lucky the universe decided we should meet 🥹🌸
+        </p>
+    </div>
+
+    <div class="gallery">
+        <img src="i1.jpeg">
+        <img src="i2.jpeg">
+        <img src="i3.jpeg">
+    </div>
+</div>
+
+</div>
+
+<script>
+function nextPage(page){
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.remove("active");
+    });
+    document.getElementById("page"+page).classList.add("active");
+}
+
+function nextPage(page){
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.remove("active");
+    });
+    document.getElementById("page"+page).classList.add("active");
+}
+
+function moveButton(){
+    const btn = document.querySelector(".no");
+    const container = document.querySelector(".container");
+
+    const maxX = container.clientWidth - 100;
+    const maxY = container.clientHeight - 50;
+
+    btn.style.left = Math.random() * maxX + "px";
+    btn.style.top = Math.random() * maxY + "px";
+}
+
+</script>
+
+</body>
+</html>

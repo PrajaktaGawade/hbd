@@ -5,6 +5,24 @@
 <title>Birthday Surprise 💖</title>
 
 <style>
+/* Floating Hearts */
+.heart{
+    position: fixed;
+    bottom: -20px;
+    animation: float 6s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes float{
+    from{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to{
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
 body{
     margin:0;
     font-family:'Comic Sans MS', cursive;
@@ -151,7 +169,7 @@ Happy Birthday to my absolute favorite human in this whole world 🎂💖
 You’re not just my best friend… you’re my safe place, my biggest supporter,
 my partner in crime, and the one person who understands my madness without explanation 😌✨
 
-Thank you for all the late-night talks, the uncontrollable laughter,
+Thank you for all the uncontrollable laughter,
 the random drama, and the memories that I’ll cherish forever 💕
 
 Life honestly wouldn’t be the same without you in it.
@@ -193,6 +211,23 @@ function moveButton(){
     btn.style.left = Math.random() * maxX + "px";
     btn.style.top = Math.random() * maxY + "px";
 }
+
+setInterval(()=>{
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random()*20+15) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+
+},200);
+
 
 </script>
 
